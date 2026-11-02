@@ -1,3 +1,5 @@
+# don't forget to set the SPRING_DATASOURCE_URL, SPRING_DATASOURCE_USERNAME and SPRING_DATASOURCE_PASSWORD environment variables
+
 spring:
   application:
     name: api
