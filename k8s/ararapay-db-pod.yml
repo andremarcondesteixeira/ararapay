@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "ararapay-db"
+  labels:
+    domain: "ararapay"
+    type: "db"
+spec:
+  containers:
+    - name: "ararapay-db"
+      image: "postgres:18"
+      env:
+        - name: "POSTGRES_DB"
+          value: "ararapay_db"
+        - name: "POSTGRES_USER"
+          value: "ararapay_user"
+        - name: "POSTGRES_PASSWORD"
+          value: "secret"
+      ports:
+        - containerPort: 5432

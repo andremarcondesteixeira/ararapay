@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "ararapay-api"
+  labels:
+    domain: "ararapay"
+spec:
+  selector:
+    matchLabels:
+      domain: "ararapay"
+      type: "api"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        domain: "ararapay"
+        type: "api"
+    spec:
+      containers:
+        - name: "ararapay-api-container"
+          image: "andremarcondesteixeira/ararapay-api:latest"
+          env:
+            - name: "SPRING_DATASOURCE_URL"
+              value: "jdbc:postgresql://postgres:5432/ararapay_db"
+            - name: "SPRING_DATASOURCE_USERNAME"
+              value: "ararapay_user"
+            - name: "SPRING_DATASOURCE_PASSWORD"
+              value: "secret"

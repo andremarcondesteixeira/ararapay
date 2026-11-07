@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "postgres"
+  labels:
+    domain: "ararapay"
+spec:
+  selector:
+    domain: "ararapay"
+    type: "db"
+  type: ClusterIP
+  ports:
+    - name: ararapay-db-port
+      port: 5432
+      protocol: TCP
